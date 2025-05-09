@@ -38,7 +38,7 @@ export function Hero() {
             ME */}
           </h1>
           <span className='mt-4 text-xl md:text-2xl font-medium text-foreground'>
-            <TypingAnimation>From Clutter to clarity.</TypingAnimation>
+            <TypingAnimation>From clutter to clarity.</TypingAnimation>
           </span>
 
           <Button
