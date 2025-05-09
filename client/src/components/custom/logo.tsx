@@ -21,7 +21,7 @@ export default function Logo({ size = 'md' }: LogoProps) {
         'flex items-center self-center font-bold',
         sizeClasses[size]
       )}>
-      <span className='text-primary'>Prism</span>
+      <span className='text-primary'>Prizm</span>
       <AuroraText>AI</AuroraText>
     </Link>
   );

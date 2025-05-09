@@ -18,7 +18,7 @@ export function Footer() {
         <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4'>
           {/* Company Info */}
           <div>
-            <h3 className='mb-4 text-xl font-bold text-primary'>PrismAI</h3>
+            <h3 className='mb-4 text-xl font-bold text-primary'>PrizmAi</h3>
             <p className='mb-4 text-muted-foreground'>
               Empowering hotels, simplifying travel.
             </p>
@@ -102,9 +102,9 @@ export function Footer() {
               <li className='flex items-center'>
                 <Mail size={20} className='mr-2 text-muted-foreground' />
                 <Link
-                  href='mailto:info@PrismAI.com'
+                  href='mailto:info@PrizmAi.com'
                   className='text-muted-foreground hover:text-foreground'>
-                  info@PrismAI.com
+                  info@PrizmAi.com
                 </Link>
               </li>
             </ul>
@@ -148,7 +148,7 @@ export function Footer() {
 
         <div className='mt-12 border-t border-border pt-8 text-center'>
           <p className='text-sm text-muted-foreground'>
-            &copy; {new Date().getFullYear()} PrismAI. All rights reserved.
+            &copy; {new Date().getFullYear()} PrizmAi. All rights reserved.
           </p>
         </div>
       </div>

@@ -22,7 +22,7 @@ export function Hero() {
           <h1 className='mb-4 text-5xl font-bold tracking-tight text-foreground md:text-7xl'>
             {/* <span className='text-primary'> */}
             {/* <HyperText className='text-5xl font-bold tracking-tight md:text-7xl text-primary'>
-              PrismAI
+              PrizmAi
             </HyperText> */}
             <Logo size='lg' />
             {/* <HyperText className='text-5xl font-bold tracking-tight md:text-7xl text-secondary'>
