@@ -38,11 +38,11 @@ export function Hero() {
             ME */}
           </h1>
           <span className='mt-4 text-xl md:text-2xl font-medium text-foreground'>
-            <TypingAnimation>Clutter to clarity.</TypingAnimation>
+            <TypingAnimation>From Clutter to clarity.</TypingAnimation>
           </span>
 
           <Button
-            className='mt-6 relative inline-block w-fit text-2xl font-medium text-foreground rounded-lg border px-8 py-4 h-auto'
+            className='mt-6 relative inline-block w-fit text-2xl font-medium text-white bg-black rounded-lg border px-8 py-4 h-auto hover:bg-gray-800'
             variant='ghost'>
             Get started
             <BorderBeam
