@@ -1,5 +1,5 @@
-import { Dispatch, SVGProps } from "react";
-import { z } from "zod";
+import { Dispatch, SVGProps, FC } from 'react';
+import { z } from 'zod';
 
 export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
@@ -24,22 +24,19 @@ export interface SchedulerState {
 
 // Define actions for reducer
 export type Action =
-  | { type: "ADD_EVENT"; payload: Event }
-  | { type: "REMOVE_EVENT"; payload: { id: string } }
-  | { type: "UPDATE_EVENT"; payload: Event }
-  | { type: "SET_EVENTS"; payload: Event[] };
-
-
-  
+  | { type: 'ADD_EVENT'; payload: Event }
+  | { type: 'REMOVE_EVENT'; payload: { id: string } }
+  | { type: 'UPDATE_EVENT'; payload: Event }
+  | { type: 'SET_EVENTS'; payload: Event[] };
 
 // Define handlers interface
 export interface Handlers {
   handleEventStyling: (
     event: Event,
     dayEvents: Event[],
-    periodOptions?: { 
-      eventsInSamePeriod?: number; 
-      periodIndex?: number; 
+    periodOptions?: {
+      eventsInSamePeriod?: number;
+      periodIndex?: number;
       adjustForPeriod?: boolean;
     }
   ) => {
@@ -78,23 +75,23 @@ export interface SchedulerContextType {
 
 // Define the variant options
 export const variants = [
-  "success",
-  "primary",
-  "default",
-  "warning",
-  "danger",
+  'success',
+  'primary',
+  'default',
+  'warning',
+  'danger',
 ] as const;
 
 export type Variant = (typeof variants)[number];
 
 // Define Zod schema for form validation
 export const eventSchema = z.object({
-  title: z.string().nonempty("Event name is required"),
+  title: z.string().nonempty('Event name is required'),
   description: z.string().optional(),
   startDate: z.date(),
   endDate: z.date(),
-  variant: z.enum(["primary", "danger", "success", "warning", "default"]),
-  color: z.string().nonempty("Color selection is required"),
+  variant: z.enum(['primary', 'danger', 'success', 'warning', 'default']),
+  color: z.string().nonempty('Color selection is required'),
 });
 
 export type EventFormData = z.infer<typeof eventSchema>;
@@ -104,7 +101,7 @@ export type Views = {
   views?: string[];
 };
 
-export type startOfWeek = "sunday" | "monday";
+export type startOfWeek = 'sunday' | 'monday';
 
 export interface CustomEventModal {
   CustomAddEventModal?: {
@@ -159,4 +156,57 @@ export interface ClassNames {
   buttons?: ButtonClassNames;
   tabs?: TabsClassNames;
   views?: ViewClassNames;
+}
+
+export interface BenefitProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  className?: string;
+}
+
+export interface FAQItemProps {
+  question: string;
+  answer: string;
+  category: string;
+}
+
+export interface SocialLinkProps {
+  name: string;
+  href: string;
+  icon: FC<SVGProps<SVGSVGElement>>;
+  lightColor: string;
+  darkColor: string;
+}
+
+export interface Sponsor {
+  name: string;
+}
+
+export interface TestimonialProps {
+  content: string;
+  author: string;
+  role: string;
+  company: string;
+  image: string;
+}
+
+export interface Contact {
+  name: string;
+  description: string;
+  institution: string;
+  email: string;
+  website: string;
+}
+
+export interface Area {
+  area: {
+    name: string;
+    rating: number;
+    contacts: Contact[];
+  };
+}
+
+export interface GraphProps {
+  startData: Area[];
 }

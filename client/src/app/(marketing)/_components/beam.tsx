@@ -1,6 +1,7 @@
 'use client';
 
 import React, { forwardRef, useRef } from 'react';
+import Image from 'next/image';
 
 import { cn } from '@/lib/utils';
 import { AnimatedBeam } from '@/components/magicui/animated-beam';
@@ -59,8 +60,14 @@ export function Beam({ className }: { className?: string }) {
           </Circle>
         </div>
         <div className='flex flex-col justify-center'>
-          <Circle ref={div6Ref} className='size-16'>
-            <Icons.openai />
+          <Circle ref={div6Ref} className='size-16 p-2'>
+            <Image
+              src='/logo.png'
+              alt='Logo'
+              width={48}
+              height={48}
+              className='object-contain'
+            />
           </Circle>
         </div>
         <div className='flex flex-col justify-center'>

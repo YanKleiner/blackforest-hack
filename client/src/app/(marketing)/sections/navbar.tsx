@@ -62,13 +62,8 @@ export const Navbar = () => {
           <div className='hidden md:flex items-center space-x-3 flex-shrink-0 relative'>
             <ModeToggle />
             <Button>
-              <Link href='/login' className='text-sm font-medium'>
-                Log in
-              </Link>
-            </Button>
-            <Button variant='outline'>
-              <Link href='/signup' className='text-sm font-medium'>
-                Sign up
+              <Link href='/dashboard' className='text-sm font-medium'>
+                Dashboard
               </Link>
             </Button>
           </div>
