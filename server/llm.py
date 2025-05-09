@@ -1,6 +1,7 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
+import PyPDF2
 
 # Load environment variables from .env file
 load_dotenv()
@@ -10,13 +11,27 @@ client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY"),
 )
 
-completion = client.chat.completions.create(
-    extra_headers={
-        "HTTP-Referer": "<YOUR_SITE_URL>",  # Optional. Site URL for rankings on openrouter.ai.
-        "X-Title": "<YOUR_SITE_NAME>",  # Optional. Site title for rankings on openrouter.ai.
-    },
-    model="openai/gpt-4o",
-    messages=[{"role": "user", "content": "What is the meaning of life?"}],
-)
+def extract_text_from_pdf(pdf_path):
+    """Extract text from a PDF file."""
+    text = ""
+    try:
+        with open(pdf_path, "rb") as file:
+            reader = PyPDF2.PdfReader(file)
+            for page in reader.pages:
+                text += page.extract_text()
+    except Exception as e:
+        print(f"Error reading PDF file: {e}")
+    return text
 
-print(completion.choices[0].message.content)
+# Specify the path to the PDF file
+pdf_path = "/Users/greysonwiesenack/Library/Mobile Documents/com~apple~CloudDocs/Independant/Hackathon/BlackForest Hack/data-for-participants/Example-2/service-specification.pdf"  # Replace with the actual path to your PDF file
+
+# Extract text from the PDF
+pdf_text = extract_text_from_pdf(pdf_path)
+
+# Print the extracted text in the terminal
+if pdf_text:
+    print("Extracted PDF Text:")
+    print(pdf_text)
+else:
+    print("No text could be extracted from the PDF.")
