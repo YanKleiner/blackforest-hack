@@ -10,7 +10,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'PrizmAi',
-  description: 'Empowering hotels, simplifying travel.',
+  description: 'From clutter to clarity.',
   keywords:
     'PDF, data, search, PrizmAi, technology, AI',
   authors: [{ name: 'Kirill Heitzler' }],
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://PrizmAi.com/',
-    title: 'PrizmAi - Empowering hotels, simplifying travel.',
-    description: 'Empowering hotels, simplifying travel.',
+    title: 'PrizmAi - From clutter to clarity.',
+    description: 'From clutter to clarity.',
     siteName: 'PrizmAi',
     images: [
       {

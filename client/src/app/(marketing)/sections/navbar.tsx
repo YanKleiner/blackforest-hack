@@ -6,10 +6,12 @@ import Link from 'next/link';
 import { ScrollProgress } from '@/components/magicui/scroll-progress';
 import { Button } from '@/components/ui/button';
 import { ModeToggle } from '@/components/ui/mode-toggle';
+import { useTheme } from 'next-themes';
 import Logo from '@/components/custom/logo';
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +31,14 @@ export const Navbar = () => {
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex items-center justify-between h-16'>
           <div className='flex-shrink-0 relative'>
-            <Logo />
+            {/* <Logo /> */}
+            <Link href='/'>
+              <img
+              src={theme === 'dark' ? '/PrizmAi_w.png' : '/PrizmAi_b.png'}  
+              alt='Logo'
+              className='h-6 w-auto'
+              />
+            </Link>
           </div>
 
           {/* Navigation Links - Desktop - Now centered */}
