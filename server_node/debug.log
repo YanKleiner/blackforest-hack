@@ -1,0 +1,50 @@
+2025-05-10 02:49:57 [error]: LOGGER TEST - ERROR LEVEL
+2025-05-10 02:49:57 [warn]: LOGGER TEST - WARN LEVEL
+2025-05-10 02:49:57 [info]: LOGGER TEST - INFO LEVEL
+2025-05-10 02:49:57 [http]: LOGGER TEST - HTTP LEVEL
+2025-05-10 02:49:57 [debug]: LOGGER TEST - DEBUG LEVEL
+2025-05-10 02:49:57 [info]: LOGGER: Server running at http://localhost:4000
+2025-05-10 02:50:00 [error]: LOGGER TEST - ERROR LEVEL
+2025-05-10 02:50:00 [warn]: LOGGER TEST - WARN LEVEL
+2025-05-10 02:50:00 [info]: LOGGER TEST - INFO LEVEL
+2025-05-10 02:50:00 [http]: LOGGER TEST - HTTP LEVEL
+2025-05-10 02:50:00 [debug]: LOGGER TEST - DEBUG LEVEL
+2025-05-10 02:50:00 [info]: LOGGER: Server running at http://localhost:4000
+2025-05-10 02:50:03 [http]: POST /api/v1/upload [STARTED]
+2025-05-10 02:50:03 [http]: POST /api/v1/upload 200 [FINISHED] 13ms
+2025-05-10 02:50:03 [info]: ::1 - - [10/May/2025:00:50:03 +0000] "POST /api/v1/upload HTTP/1.1" 200 184 "-" "PostmanRuntime/7.39.1"
+2025-05-10 02:50:05 [http]: POST /api/v1/upload [STARTED]
+2025-05-10 02:50:05 [http]: POST /api/v1/upload 200 [FINISHED] 7ms
+2025-05-10 02:50:05 [info]: ::1 - - [10/May/2025:00:50:05 +0000] "POST /api/v1/upload HTTP/1.1" 200 184 "-" "PostmanRuntime/7.39.1"
+2025-05-10 02:50:08 [http]: GET /api/v1/test [STARTED]
+2025-05-10 02:50:08 [debug]: Test endpoint debug
+2025-05-10 02:50:08 [info]: Test endpoint info
+2025-05-10 02:50:08 [warn]: Test endpoint warn
+2025-05-10 02:50:08 [error]: Test endpoint error
+2025-05-10 02:50:08 [info]: LOGGER INFO: Test endpoint was called
+2025-05-10 02:50:08 [http]: GET /api/v1/test 200 [FINISHED] 3ms
+2025-05-10 02:50:08 [info]: ::1 - - [10/May/2025:00:50:08 +0000] "GET /api/v1/test HTTP/1.1" 200 35 "-" "PostmanRuntime/7.39.1"
+2025-05-10 02:50:08 [http]: GET /api/v1/test [STARTED]
+2025-05-10 02:50:08 [debug]: Test endpoint debug
+2025-05-10 02:50:08 [info]: Test endpoint info
+2025-05-10 02:50:08 [warn]: Test endpoint warn
+2025-05-10 02:50:08 [error]: Test endpoint error
+2025-05-10 02:50:08 [info]: LOGGER INFO: Test endpoint was called
+2025-05-10 02:50:08 [http]: GET /api/v1/test 200 [FINISHED] 1ms
+2025-05-10 02:50:08 [info]: ::1 - - [10/May/2025:00:50:08 +0000] "GET /api/v1/test HTTP/1.1" 200 35 "-" "PostmanRuntime/7.39.1"
+2025-05-10 02:50:09 [http]: GET /api/v1/test [STARTED]
+2025-05-10 02:50:09 [debug]: Test endpoint debug
+2025-05-10 02:50:09 [info]: Test endpoint info
+2025-05-10 02:50:09 [warn]: Test endpoint warn
+2025-05-10 02:50:09 [error]: Test endpoint error
+2025-05-10 02:50:09 [info]: LOGGER INFO: Test endpoint was called
+2025-05-10 02:50:09 [http]: GET /api/v1/test 200 [FINISHED] 2ms
+2025-05-10 02:50:09 [info]: ::1 - - [10/May/2025:00:50:09 +0000] "GET /api/v1/test HTTP/1.1" 200 35 "-" "PostmanRuntime/7.39.1"
+2025-05-10 02:50:09 [http]: GET /api/v1/test [STARTED]
+2025-05-10 02:50:09 [debug]: Test endpoint debug
+2025-05-10 02:50:09 [info]: Test endpoint info
+2025-05-10 02:50:09 [warn]: Test endpoint warn
+2025-05-10 02:50:09 [error]: Test endpoint error
+2025-05-10 02:50:09 [info]: LOGGER INFO: Test endpoint was called
+2025-05-10 02:50:09 [http]: GET /api/v1/test 200 [FINISHED] 17ms
+2025-05-10 02:50:09 [info]: ::1 - - [10/May/2025:00:50:09 +0000] "GET /api/v1/test HTTP/1.1" 200 35 "-" "PostmanRuntime/7.39.1"
