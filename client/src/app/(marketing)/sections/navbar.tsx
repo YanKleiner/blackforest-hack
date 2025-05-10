@@ -7,7 +7,6 @@ import { ScrollProgress } from '@/components/magicui/scroll-progress';
 import { Button } from '@/components/ui/button';
 import { ModeToggle } from '@/components/ui/mode-toggle';
 import { useTheme } from 'next-themes';
-import Logo from '@/components/custom/logo';
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
