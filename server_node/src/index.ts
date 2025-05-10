@@ -52,33 +52,107 @@ async function generateXmlFromPdfText(text: string) {
       messages: [
         {
           role: 'system',
-          content: `You are an AI assistant specializing in extracting structured information from construction and order documents. 
-          Extract the order information from the document and format it as XML with the following structure:
-          
-          <?xml version="1.0" encoding="UTF-8"?>
-          <order>
-             <customerId>[ID if available]</customerId>
-             <commission>[project name or number]</commission>
-             <type>[type if available]</type>
-             <shippingConditionId>[ID if available]</shippingConditionId>
-             <items>
-                <item>
-                   <sku>[item number]</sku>
-                   <name>[item name]</name>
-                   <text>[item description]</text>
-                   <quantity>[number]</quantity>
-                   <quantityUnit>[unit]</quantityUnit>
-                   <price>[price]</price>
-                   <priceUnit>[currency]</priceUnit>
-                   <purchasePrice>[price if available]</purchasePrice>
-                   <commission>[position reference]</commission>
-                </item>
-                ... (more items)
-             </items>
-          </order>
-          
-          Include all items from the document. If some information is not available, leave the XML element empty but still include it.`,
+          content: `You are an expert estimator for industrial door projects.  
+The user sends ONE plain-text block with this structure:
+
+<— blank line —>
+Full German “Leistungsverzeichnis” text extracted from the PDF …
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+YOUR TASK
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1.⁠ ⁠Read the first three header lines and store:
+   • customerId            – after “CUSTOMER_ID=”
+   • commission            – after “COMMISSION=”
+   • shippingConditionId   – after “SHIPPING_CONDITION_ID=”
+
+2.⁠ ⁠Parse the remaining specification text.
+   • Detect every position (LV-POS), its quantity, unit, description and requirement keywords.
+   • Classify each position into a catalog SKU (see table below, elements > accessories > services priority).
+   • Ignore optional/on-demand positions in total counts but DO include them in XML; set their quantityUnit to “Optional”.
+   • Extract supplier/brand names ONLY for door elements and append them in brackets inside <text>.
+   • Preserve the original German wording; insert <br/> line breaks where helpful.
+   • After two line breaks inside <text>, add concise requirement tags you detect (fire, smoke, sound, burglary, radiation, wet, humid, climate class, U-value, accessibility, rebate type, post-and-beam, external).
+
+3.⁠ ⁠Catalog mapping
+   ELEMENTS
+     620001 – Wooden doors & frames
+     670001 – Steel doors / frames / tubular-frame doors
+     660001 – Front doors
+     610001 – Glass doors
+     680001 – Gates
+     Rule: classify by door leaf; for glazing classify by frame.
+
+   ACCESSORIES
+     240001 – Fittings          330001 – Door stoppers
+     450001 – Ventilation grilles
+     290001 – Door closers      360001 – Locks / electric openers
+
+   SERVICES
+     DL8110016 – Maintenance
+     DL5010008 – Hourly work
+     DL5019990 – Misc. services (survey, sample leaf, site equipment…)
+
+4.⁠ ⁠Produce exactly this XML (UTF-8, no BOM) and *nothing else*:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<order>
+  <customerId>{customerId}</customerId>
+  <commission>{commission}</commission>
+  <type>A</type>
+  <shippingConditionId>{shippingConditionId}</shippingConditionId>
+  <items>
+    <!-- repeat for every detected position -->
+    <item>
+      <sku>{catalogSku}</sku>
+      <name>{short human-readable name}</name>
+      <text>{full escaped description with <br/>}</text>
+        <quantity>{number OR \"Optional\"}</quantity>
+      <quantityUnit>{unit, e.g. \"Stk\"}</quantityUnit>
+      <price>{\“0.00\” if none found}</price>
+      <priceUnit>€</priceUnit>
+      <commission>{original LV position number}</commission>
+    </item>
+  </items>
+</order>
+
+Rules:
+•⁠  ⁠Output ONLY the final XML – no markdown, headings, or commentary.  
+•⁠  ⁠Escape &, <, >, \", \'. Preserve German umlauts (ü, ö, ä, ß).  
+•⁠  ⁠If any field is missing, leave the tag empty but keep it.  
+•⁠  ⁠Guarantee the XML is well-formed; the wrapper will save it straight to a file.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+READY?  GO!`,
+
+          // `You are an AI assistant specializing in extracting structured information from construction and order documents.
+          // Extract the order information from the document and format it as XML with the following structure:
+
+          // <?xml version="1.0" encoding="UTF-8"?>
+          // <order>
+          //    <customerId>[ID if available]</customerId>
+          //    <commission>[project name or number]</commission>
+          //    <type>[type if available]</type>
+          //    <shippingConditionId>[ID if available]</shippingConditionId>
+          //    <items>
+          //       <item>
+          //          <sku>[item number]</sku>
+          //          <name>[item name]</name>
+          //          <text>[item description]</text>
+          //          <quantity>[number]</quantity>
+          //          <quantityUnit>[unit]</quantityUnit>
+          //          <price>[price]</price>
+          //          <priceUnit>[currency]</priceUnit>
+          //          <purchasePrice>[price if available]</purchasePrice>
+          //          <commission>[position reference]</commission>
+          //       </item>
+          //       ... (more items)
+          //    </items>
+          // </order>
+
+          // Include all items from the document. If some information is not available, leave the XML element empty but still include it.`,
         },
+
         { role: 'user', content: text },
       ],
       temperature: 0.2, // Lower temperature for more consistent output
