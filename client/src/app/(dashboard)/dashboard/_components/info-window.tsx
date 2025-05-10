@@ -18,8 +18,10 @@ export type IconProps = React.HTMLAttributes<SVGElement>;
 import {
   ArrowUpRight,
   Building,
+  Euro,
   Info,
   Mail,
+  Package,
   Phone,
   Plus,
   Star,
@@ -31,29 +33,62 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { CardContent, CardHeader, CardFooter } from '@/components/ui/card';
 import { useStore } from '@/lib/store';
 
+// Mock data for permanent display when no node is selected
+const mockProductData = {
+  title: 'TVB - Türblatt für Stahlumfassungszarge',
+  color: 'hsl(210, 20%, 60%)',
+  type: 'product',
+  details: {
+    description:
+      'Technische Vorbemerkungen: Türblatt als stumpf einschlagende Türe mit Einfachfalz und Drückergarnitur.',
+    specifications: [
+      {
+        category: 'TÜRBLATT',
+        items: ['Mittellage Röhrenspankern', 'Türblattdicke ca.40mm'],
+      },
+      // {
+      //   category: 'OBERFLÄCHE',
+      //   items: [
+      //     'weiß lackiert, ähnlich RAL 9016',
+      //     'PU-Lack auf Grundierfolie',
+      //     'Türblattkanten lackiert mit fugenloser Falzkante',
+      //   ],
+      // },
+      {
+        category: 'BESCHLÄGE',
+        items: ['verstellbare Bänder, 2-tlg., vernickelt.'],
+      },
+    ],
+    warning:
+      'Achtung: Sämtliche Türblätter sind so einzubauen, dass ein Bodenspalt von ca 10mm für die mechanische Wohnraumlüftung gegeben ist!',
+    institution: 'Türen & Zargen GmbH',
+    website: 'https://tueren-zargen.de',
+    contacts: [
+      {
+        name: 'Beratung & Verkauf',
+        institution: 'Türen & Zargen Vertrieb',
+        email: 'verkauf@tueren-zargen.de',
+      },
+    ],
+  },
+};
+
 export default function InfoWindow() {
   const { selectedNode, setSelectedNode } = useStore();
 
-  // Close the info window
+  // Close the info window (reset to default view)
   const handleClose = () => {
     setSelectedNode(null);
   };
 
-  // If no node is selected, show a placeholder
-  if (!selectedNode) {
-    // hide the info window
-    return null;
-  }
-
-  // Extract details from the selected node
-  const { title, color, type, details } = selectedNode;
+  // Use selected node data or mock data
+  const displayData = selectedNode || mockProductData;
+  const { title, color, type, details } = displayData;
   const nodeColor = color || 'hsl(186,100%,50%)';
 
-  console.log(details?.description);
-
   return (
-    <div className='fixed top-1/2 left-0 transform -translate-y-1/2 z-50 px-4 py-14'>
-      <Card className='relative w-[350px] overflow-hidden'>
+    <div className='fixed top-4 left-4 z-50'>
+      <Card className='relative w-[380px] overflow-hidden'>
         <CardHeader className=''>
           <div className='flex justify-between items-center'>
             <div className='flex items-center gap-2'>
@@ -63,19 +98,26 @@ export default function InfoWindow() {
               />
               <h3 className='text-lg font-medium'>{title}</h3>
             </div>
-            <Button
-              size='icon'
-              variant='ghost'
-              className='rounded-full h-8 w-8'
-              onClick={handleClose}>
-              <X className='h-4 w-4' />
-              <span className='sr-only'>Close</span>
-            </Button>
+            {selectedNode && (
+              <Button
+                size='icon'
+                variant='ghost'
+                className='rounded-full h-8 w-8'
+                onClick={handleClose}>
+                <X className='h-4 w-4' />
+                <span className='sr-only'>Close</span>
+              </Button>
+            )}
           </div>
-          {/* <Badge variant='outline' className='w-fit mt-2'>
-            {type === 'center' ? 'Main Problem' : 
-             (parseInt(selectedNode.id) < 3 ? 'Area' : 'Contact')}
-          </Badge> */}
+          <Badge variant='outline' className='w-fit mt-2'>
+            {selectedNode
+              ? type === 'center'
+                ? 'Main Problem'
+                : parseInt(selectedNode.id) < 3
+                ? 'Area'
+                : 'Contact'
+              : 'Technische Spezifikation'}
+          </Badge>
         </CardHeader>
 
         <Separator />
@@ -83,8 +125,35 @@ export default function InfoWindow() {
         <CardContent className='pt-2'>
           {details?.description && (
             <div className='mb-4'>
-              <p className='text-sm text-muted-foreground mb-1'>Description</p>
-              <p>{details.description}</p>
+              <p className='text-sm text-muted-foreground mb-1'>Beschreibung</p>
+              <p className='text-sm'>{details.description}</p>
+            </div>
+          )}
+
+          {/* Technical specifications */}
+          {details?.specifications && (
+            <div className='space-y-4 mb-4'>
+              {details.specifications.map((spec, index) => (
+                <div key={index} className='space-y-1'>
+                  <p className='font-semibold text-sm'>{spec.category}:</p>
+                  <ul className='list-inside space-y-1'>
+                    {spec.items.map((item, itemIndex) => (
+                      <li key={itemIndex} className='text-sm'>
+                        - {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Warning notice */}
+          {details?.warning && (
+            <div className='bg-yellow-50 border-l-4 border-yellow-400 p-3 mb-4'>
+              <p className='text-sm font-medium text-yellow-800'>
+                {details.warning}
+              </p>
             </div>
           )}
 
@@ -92,22 +161,8 @@ export default function InfoWindow() {
             <div className='flex items-start gap-2 mb-2'>
               <Building className='w-4 h-4 mt-0.5 text-muted-foreground' />
               <div>
-                <p className='text-sm text-muted-foreground'>Institution</p>
+                <p className='text-sm text-muted-foreground'>Hersteller</p>
                 <p>{details.institution}</p>
-              </div>
-            </div>
-          )}
-
-          {details?.email && (
-            <div className='flex items-start gap-2 mb-2'>
-              <Mail className='w-4 h-4 mt-0.5 text-muted-foreground' />
-              <div>
-                <p className='text-sm text-muted-foreground'>Email</p>
-                <a
-                  href={`mailto:${details.email}`}
-                  className='text-blue-500 hover:underline'>
-                  {details.email}
-                </a>
               </div>
             </div>
           )}
@@ -130,7 +185,7 @@ export default function InfoWindow() {
 
           {details?.contacts && details.contacts.length > 0 && (
             <div className=''>
-              <p className='text-sm text-muted-foreground mb-2'>Contacts</p>
+              <p className='text-sm text-muted-foreground mb-2'>Kontakte</p>
               <div className='space-y-3'>
                 {details.contacts.map((contact, idx) => (
                   <div key={idx} className='bg-muted/50 p-3 rounded-lg'>
@@ -157,6 +212,14 @@ export default function InfoWindow() {
             </div>
           )}
         </CardContent>
+
+        <CardFooter className='pt-0'>
+          {!selectedNode && (
+            <Button className='w-full' variant='default'>
+              Technische Details anfordern
+            </Button>
+          )}
+        </CardFooter>
 
         <BorderBeam
           duration={6}

@@ -65,7 +65,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+
 import ChatWindow from '@/app/(dashboard)/dashboard/_components/chat-window';
+import InfoWindow from '@/app/(dashboard)/dashboard/_components/info-window';
 
 import { useStore } from '@/lib/store';
 
@@ -111,6 +113,8 @@ export default function Chat() {
       {/* 
       <Roadmap />
       <InfoWindow /> */}
+
+      <InfoWindow />
     </div>
   );
 }
