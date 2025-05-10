@@ -1,4 +1,4 @@
-// 'use client';
+'use client';
 
 // import { useState, useEffect } from 'react';
 // import DockBar from '../../_components/dock-bar';
@@ -113,7 +113,7 @@ export const config = {
 //   matcher: ['/((?!_next/|_static|_vercel|[\\w-]+\\.\\w+).*)'],
 // };`;
 
-const afterCode = `<?xml version="1.0" encoding="UTF-8"?>
+const afterCodeMock = `<?xml version="1.0" encoding="UTF-8"?>
 <order>
    <customerId>109349</customerId>
    <commission>1901 / Sägemühle</commission>
@@ -301,7 +301,13 @@ Zeit wird nach tatsächlichem Aufwand gemäß Tätigkeitsnachweis abgerechnet.</
 </order>
 `;
 
+import { useStore } from '@/lib/store';
+import { after } from 'node:test';
+
 export default function CodeComparisonDemo() {
+  const { serverResponse } = useStore();
+  const afterCode = serverResponse?.xml || afterCodeMock;
+
   return (
     <div className='relative top-28 flex flex-1 flex-col'>
       <CodeComparison
