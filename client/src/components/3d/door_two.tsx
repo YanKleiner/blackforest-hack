@@ -93,13 +93,16 @@ type GLTFResult = GLTF & {
   materials: {
     ['0.811765_0.858824_0.898039_0.000000_0.000000']: THREE.MeshStandardMaterial;
     ['0.400000_0.400000_0.400000_0.000000_0.000000']: THREE.MeshStandardMaterial;
+    ['0.239216_0.992157_0.035294_0.000000_0.000000']: THREE.MeshStandardMaterial;
     ['0.341176_0.776471_0.741176_0.000000_0.462745']: THREE.MeshStandardMaterial;
-    ['0.901961_0.878431_0.811765_0.000000_0.000000']: THREE.MeshStandardMaterial;
+    ['0.713725_0.760784_0.800000_0.000000_0.000000']: THREE.MeshStandardMaterial;
   };
 };
 
-export function Door(props: React.JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('/tech_door.gltf') as GLTFResult;
+export function DoorTwo(props: React.JSX.IntrinsicElements['group']) {
+  const { nodes, materials } = useGLTF(
+    '/tech_door_highlight.gltf'
+  ) as GLTFResult;
 
   return (
     <Center
@@ -296,37 +299,37 @@ export function Door(props: React.JSX.IntrinsicElements['group']) {
             castShadow
             receiveShadow
             geometry={nodes.mesh48_mesh.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh48_mesh_1.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh48_mesh_2.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh48_mesh_3.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh48_mesh_4.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh48_mesh_5.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
         </group>
         <group position={[0.001, 0.002, 0]} rotation={[0, 0, -Math.PI / 6]}>
@@ -334,85 +337,85 @@ export function Door(props: React.JSX.IntrinsicElements['group']) {
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh_1.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh_2.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh_3.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh_4.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh_5.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh_6.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh_7.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh_8.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh_9.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh_10.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh_11.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh_12.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh64_mesh_13.geometry}
-            material={materials['0.901961_0.878431_0.811765_0.000000_0.000000']}
+            material={materials['0.713725_0.760784_0.800000_0.000000_0.000000']}
           />
         </group>
         <group position={[0.001, 0.002, 0]} rotation={[0, 0, -Math.PI / 6]}>
@@ -420,37 +423,37 @@ export function Door(props: React.JSX.IntrinsicElements['group']) {
             castShadow
             receiveShadow
             geometry={nodes.mesh78_mesh.geometry}
-            material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+            material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh78_mesh_1.geometry}
-            material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+            material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh78_mesh_2.geometry}
-            material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+            material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh78_mesh_3.geometry}
-            material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+            material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh78_mesh_4.geometry}
-            material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+            material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.mesh78_mesh_5.geometry}
-            material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+            material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
           />
         </group>
         <mesh
@@ -511,55 +514,55 @@ export function Door(props: React.JSX.IntrinsicElements['group']) {
           castShadow
           receiveShadow
           geometry={nodes.mesh33_mesh.geometry}
-          material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+          material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.mesh33_mesh_1.geometry}
-          material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+          material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.mesh33_mesh_2.geometry}
-          material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+          material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.mesh33_mesh_3.geometry}
-          material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+          material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.mesh33_mesh_4.geometry}
-          material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+          material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.mesh33_mesh_5.geometry}
-          material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+          material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.mesh33_mesh_6.geometry}
-          material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+          material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.mesh33_mesh_7.geometry}
-          material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+          material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.mesh33_mesh_8.geometry}
-          material={materials['0.811765_0.858824_0.898039_0.000000_0.000000']}
+          material={materials['0.239216_0.992157_0.035294_0.000000_0.000000']}
         />
         <mesh
           castShadow
@@ -626,4 +629,4 @@ export function Door(props: React.JSX.IntrinsicElements['group']) {
   );
 }
 
-useGLTF.preload('/tech_door.gltf');
+useGLTF.preload('/tech_door_highlight.gltf');

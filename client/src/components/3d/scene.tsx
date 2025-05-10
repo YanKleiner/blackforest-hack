@@ -19,6 +19,7 @@ import { Viewport } from 'next';
 
 import { Canvas } from '@react-three/fiber';
 import { Door } from '@/components/3d/door';
+import { DoorTwo } from '@/components/3d/door_two';
 import { CameraControls } from '@react-three/drei';
 
 export default function Scene() {
@@ -27,8 +28,9 @@ export default function Scene() {
       <Canvas>
         {/* <axesHelper args={[5]} /> */}
         <CameraControls makeDefault />
-        <ambientLight intensity={0.1} />
-        <Door />
+        <ambientLight intensity={1} />
+        {/* <Door /> */}
+        <DoorTwo />
         <directionalLight position={[0, 0, 5]} color='white' />
       </Canvas>
     </div>

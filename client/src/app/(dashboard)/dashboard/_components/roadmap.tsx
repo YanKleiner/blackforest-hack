@@ -39,7 +39,7 @@ const originalNodesData = [
   {
     id: '1',
     data: {
-      color: '#8BFFAC',
+      color: '#38e8b6',
       title: 'PDF Upload',
       info: 'Initial ingestion of PDF documents into the system.',
     },
@@ -48,7 +48,7 @@ const originalNodesData = [
   {
     id: '2',
     data: {
-      color: '#FFD700',
+      color: '#42D7B7',
       title: 'Document Parsing',
       info: 'Extract text, structure, and metadata from the PDF.',
     },
@@ -57,7 +57,7 @@ const originalNodesData = [
   {
     id: '3',
     data: {
-      color: '#FFD700',
+      color: '#4BC7B8',
       title: 'Image Extraction',
       info: 'Identify and extract images from the PDF document.',
     },
@@ -66,7 +66,7 @@ const originalNodesData = [
   {
     id: '4',
     data: {
-      color: '#FF6347',
+      color: '#55B6B9',
       title: 'Text Preprocessing',
       info: 'Clean, normalize, and prepare text for further analysis.',
     },
@@ -75,7 +75,7 @@ const originalNodesData = [
   {
     id: '5',
     data: {
-      color: '#FF6347',
+      color: '#5FA6BA',
       title: 'Image Analysis',
       info: 'Process and analyze extracted images for content and context.',
     },
@@ -84,7 +84,7 @@ const originalNodesData = [
   {
     id: '6',
     data: {
-      color: '#87CEEB',
+      color: '#6895BA',
       title: 'Entity Recognition',
       info: 'Identify named entities, key concepts, and important information.',
     },
@@ -93,7 +93,7 @@ const originalNodesData = [
   {
     id: '7',
     data: {
-      color: '#87CEEB',
+      color: '#7285BB',
       title: 'Content Classification',
       info: 'Categorize document sections by content type and relevance.',
     },
@@ -102,7 +102,7 @@ const originalNodesData = [
   {
     id: '8',
     data: {
-      color: '#32CD32',
+      color: '#7C74BC',
       title: 'Annotation & Labeling',
       info: 'Apply labels, tags, and annotations to document content.',
     },
@@ -111,7 +111,7 @@ const originalNodesData = [
   {
     id: '9',
     data: {
-      color: '#FF69B4',
+      color: '#8564BD',
       title: 'Knowledge Extraction',
       info: 'Generate structured knowledge and insights from the processed document.',
     },
@@ -120,7 +120,7 @@ const originalNodesData = [
   {
     id: '10',
     data: {
-      color: '#FF69B4',
+      color: '#8F53BE',
       title: 'Document Indexing',
       info: 'Index processed content for efficient search and retrieval.',
     },
@@ -133,7 +133,9 @@ const createLoadingNodes = (completionCallback: any) => {
   // Base delay for the first node
   const baseDelay = 1500;
   // Incremental delay between nodes
-  const stepDelay = 800;
+  const getRandomDelay = (min: number, max: number) =>
+    Math.floor(Math.random() * (max - min + 1)) + min;
+  const stepDelay = getRandomDelay(300, 1500); // Random delay between 200ms and 600ms
 
   return originalNodesData.map((node, index) => ({
     ...node,
