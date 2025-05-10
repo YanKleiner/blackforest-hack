@@ -1,5 +1,12 @@
 import PyPDF2
-import openai
+import os
+from openai import OpenAI, AuthenticationError, APIError  # Updated imports
+
+# Initialize OpenAI client
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise RuntimeError("OpenAI API key is not set. Please set the 'OPENAI_API_KEY' environment variable.")
+client = OpenAI(api_key=api_key)
 
 def extract_pdf_text(file):
     """
@@ -31,40 +38,20 @@ def summarize_items(pdf_text, product_list):
             f"Based on the following client request extracted from a PDF:\n\n{pdf_text}\n\n"
             "Summarize which items from the product list we can provide for the client."
         )
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=prompt,
-            max_tokens=200,
-            temperature=0.7
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": prompt}
+            ]
         )
-        return response.choices[0].text.strip()
+        return response.choices[0].message.content.strip()
+    except AuthenticationError:
+        raise RuntimeError("Authentication with OpenAI failed. Ensure your API key is correct.")
+    except APIError as e:
+        raise RuntimeError(f"OpenAI API error: {e}")
     except Exception as e:
         raise RuntimeError(f"Failed to summarize items: {e}")
-    
-def split_text_into_chunks(text, chunk_size):
-    """
-    Splits a given text into chunks of a specified size.
-
-    :param text: The text to be split.
-    :param chunk_size: The maximum size of each chunk.
-    :return: A list of text chunks.
-    """
-    chunks = []
-    current_chunk = []
-
-    for word in text.split():
-        if len(" ".join(current_chunk + [word])) <= chunk_size:
-            current_chunk.append(word)
-        else:
-            chunks.append(" ".join(current_chunk))
-            current_chunk = [word]
-
-    # Add the last chunk if it exists
-    if current_chunk:
-        chunks.append(" ".join(current_chunk))
-
-    return chunks
-
 
 def analyze_text_chunk_with_keywords(chunk, keywords):
     """
@@ -81,23 +68,43 @@ def analyze_text_chunk_with_keywords(chunk, keywords):
             f"Please analyze the text and determine if it contains any of the following keywords: {', '.join(keywords)}.\n"
             "Respond with 'Yes' or 'No' and provide a confidence score (0-100) for your answer."
         )
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=prompt,
-            max_tokens=50,
-            temperature=0.3
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": prompt}
+            ]
         )
-        result = response.choices[0].text.strip()
+        result = response.choices[0].message.content.strip()
+        lines = result.split("\n")
         return {
-            "result": result.split("\n")[0],  # Extract 'Yes' or 'No'
-            "confidence": int(result.split("\n")[1].replace("Confidence: ", "").strip()) if "Confidence:" in result else None
+            "result": lines[0],  # Extract 'Yes' or 'No'
+            "confidence": int(lines[1].replace("Confidence: ", "").strip()) if len(lines) > 1 and "Confidence:" in lines[1] else None
         }
+    except AuthenticationError:
+        raise RuntimeError("Authentication with OpenAI failed. Ensure your API key is correct.")
+    except APIError as e:
+        raise RuntimeError(f"OpenAI API error: {e}")
     except Exception as e:
         raise RuntimeError(f"Failed to analyze text chunk: {e}")
-    
 
-if __name__=="__main__":
-    main()
+def test_openai_api_key():
+    """
+    Tests if the OpenAI API key is loaded and working by making a simple API call.
+    """
+    try:
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": "Test if the API key works."}]
+        )
+        print("API key is valid. Test response:", response.choices[0].message.content.strip())
+    except AuthenticationError:
+        print("api_key = " + os.getenv('OPENAI_API_KEY'))
+        print("Authentication failed. Check your API key.")
+    except APIError as e:
+        print(f"OpenAI API error: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
 
 def main():
     # Example usage with the specified PDF file
@@ -105,17 +112,31 @@ def main():
     product_list = ["Product A", "Product B", "Product C"]
     keywords = ["keyword1", "keyword2"]
 
-    # Extract text from the PDF
-    pdf_text = extract_pdf_text(pdf_file_path)
-    print("Extracted PDF Text:", pdf_text[:500], "...")  # Print first 500 characters for brevity
+    try:
+        # Extract text from the PDF
+        with open(pdf_file_path, "rb") as pdf_file:
+            pdf_text = extract_pdf_text(pdf_file)
 
-    # Summarize items based on the product list
-    summary = summarize_items(pdf_text, product_list)
-    print("Summary of items:", summary)
+        # Normalize the extracted text
+        pdf_text = " ".join(pdf_text.split())  # Remove excessive newlines and whitespace
+        print("Extracted PDF Text:", pdf_text[:500], "...")  # Print first 500 characters for brevity
 
-    # Split text into chunks and analyze each chunk for keywords
-    chunk_size = 1000
-    text_chunks = split_text_into_chunks(pdf_text, chunk_size)
-    for chunk in text_chunks:
-        analysis_result = analyze_text_chunk_with_keywords(chunk, keywords)
-        print(f"Analysis result for chunk: {analysis_result}")
+        # Summarize items based on the product list
+        summary = summarize_items(pdf_text, product_list)
+        print("Summary of items:", summary)
+
+        # Split text into chunks and analyze each chunk for keywords
+        chunk_size = 1000
+        text_chunks = split_text_into_chunks(pdf_text, chunk_size)
+        for i, chunk in enumerate(text_chunks):
+            print(f"\nChunk {i + 1}:\n{chunk}\n")  # Print each chunk normally
+            analysis_result = analyze_text_chunk_with_keywords(chunk, keywords)
+            print(f"Analysis result for chunk {i + 1}: {analysis_result}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+
+if __name__ == "__main__":
+    # Test the API key before running the main logic
+    test_openai_api_key()
+    main()
