@@ -17,7 +17,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
 export default function CardsChat() {
   const [isLoading, setIsLoading] = React.useState(false);
-  const { graphData } = useStore();
+  const { graphData, serverResponse } = useStore();
 
   // Initialize messages based on startData if available
   const [messages, setMessages] = React.useState(() => {
@@ -25,16 +25,25 @@ export default function CardsChat() {
     const defaultMessages = [
       {
         role: 'assistant',
-        content: 'Hi, how can I help you today?',
+        content:
+          "Hi, I've analyzed your product data. How can I help you understand it better?",
       },
       {
         role: 'user',
-        content: 'Tell me more about automation',
+        content: 'Can you summarize what you found in my product data?',
+      },
+      {
+        role: 'assistant',
+        content: `Here's a summary of your product data: ${serverResponse?.summary}. The data shows several key trends in your product portfolio. Would you like more detailed information about specific aspects?`,
+      },
+      {
+        role: 'user',
+        content: 'Which products are performing best?',
       },
       {
         role: 'assistant',
         content:
-          'Sure. Automation, rated highly for innovation, focuses on streamlining processes. It includes experts like Samuel Schneider from the Canton of St. Gallen and Leon Zimmermann from St.Gallen Robotics Institute, who specialize in sensor technologies and automation.',
+          'Based on the data, your top-performing products are in the automation category. These products show higher conversion rates and customer satisfaction scores compared to other categories. The innovation rating for these products is particularly high.',
       },
     ];
 
