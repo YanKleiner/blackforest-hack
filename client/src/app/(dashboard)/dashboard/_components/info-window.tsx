@@ -33,8 +33,37 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { CardContent, CardHeader, CardFooter } from '@/components/ui/card';
 import { useStore } from '@/lib/store';
 
+// Define interfaces for the data structure
+interface ContactInfo {
+  name: string;
+  institution?: string;
+  email?: string;
+}
+
+interface Specification {
+  category: string;
+  items: string[];
+}
+
+interface NodeDetails {
+  description?: string;
+  specifications?: Specification[];
+  warning?: string;
+  institution?: string;
+  website?: string;
+  contacts?: ContactInfo[];
+}
+
+interface NodeData {
+  id?: string;
+  title: string;
+  color: string;
+  type: string;
+  details?: NodeDetails;
+}
+
 // Mock data for permanent display when no node is selected
-const mockProductData = {
+const mockProductData: NodeData = {
   title: 'TVB - Türblatt für Stahlumfassungszarge',
   color: 'hsl(210, 20%, 60%)',
   type: 'product',
@@ -74,15 +103,8 @@ const mockProductData = {
 };
 
 export default function InfoWindow() {
-  const { selectedNode, setSelectedNode } = useStore();
-
-  // Close the info window (reset to default view)
-  const handleClose = () => {
-    setSelectedNode(null);
-  };
-
   // Use selected node data or mock data
-  const displayData = selectedNode || mockProductData;
+  const displayData: NodeData = mockProductData;
   const { title, color, type, details } = displayData;
   const nodeColor = color || 'hsl(186,100%,50%)';
 
@@ -98,25 +120,9 @@ export default function InfoWindow() {
               />
               <h3 className='text-lg font-medium'>{title}</h3>
             </div>
-            {selectedNode && (
-              <Button
-                size='icon'
-                variant='ghost'
-                className='rounded-full h-8 w-8'
-                onClick={handleClose}>
-                <X className='h-4 w-4' />
-                <span className='sr-only'>Close</span>
-              </Button>
-            )}
           </div>
           <Badge variant='outline' className='w-fit mt-2'>
-            {selectedNode
-              ? type === 'center'
-                ? 'Main Problem'
-                : parseInt(selectedNode.id) < 3
-                ? 'Area'
-                : 'Contact'
-              : 'Technische Spezifikation'}
+            {'Technische Spezifikation'}
           </Badge>
         </CardHeader>
 
@@ -214,11 +220,11 @@ export default function InfoWindow() {
         </CardContent>
 
         <CardFooter className='pt-0'>
-          {!selectedNode && (
+          {
             <Button className='w-full' variant='default'>
               Technische Details anfordern
             </Button>
-          )}
+          }
         </CardFooter>
 
         <BorderBeam

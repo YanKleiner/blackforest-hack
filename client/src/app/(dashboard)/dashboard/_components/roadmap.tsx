@@ -135,7 +135,7 @@ const createLoadingNodes = (completionCallback: any) => {
   // Incremental delay between nodes
   const getRandomDelay = (min: number, max: number) =>
     Math.floor(Math.random() * (max - min + 1)) + min;
-  const stepDelay = getRandomDelay(300, 1500); // Random delay between 200ms and 600ms
+  const stepDelay = getRandomDelay(300, 600); // Random delay between 200ms and 600ms
 
   return originalNodesData.map((node, index) => ({
     ...node,

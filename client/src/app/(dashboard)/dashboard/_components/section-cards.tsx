@@ -17,7 +17,7 @@ export function SectionCards() {
         <CardHeader>
           <CardDescription>Total Documents Processed</CardDescription>
           <CardTitle className='text-2xl font-semibold tabular-nums @[250px]/card:text-3xl'>
-            12,458
+            1,245
           </CardTitle>
           <CardAction>
             <Badge variant='outline'>
@@ -61,7 +61,7 @@ export function SectionCards() {
         <CardHeader>
           <CardDescription>Total Words Extracted</CardDescription>
           <CardTitle className='text-2xl font-semibold tabular-nums @[250px]/card:text-3xl'>
-            5.2M
+            41.8K
           </CardTitle>
           <CardAction>
             <Badge variant='outline'>

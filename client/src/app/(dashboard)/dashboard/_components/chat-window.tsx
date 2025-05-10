@@ -32,19 +32,19 @@ export default function CardsChat() {
         role: 'user',
         content: 'Can you summarize what you found in my product data?',
       },
-      {
-        role: 'assistant',
-        content: `Here's a summary of your product data: ${serverResponse?.summary}. The data shows several key trends in your product portfolio. Would you like more detailed information about specific aspects?`,
-      },
-      {
-        role: 'user',
-        content: 'Which products are performing best?',
-      },
-      {
-        role: 'assistant',
-        content:
-          'Based on the data, your top-performing products are in the automation category. These products show higher conversion rates and customer satisfaction scores compared to other categories. The innovation rating for these products is particularly high.',
-      },
+      // {
+      //   role: 'assistant',
+      //   content: `Here's a summary of your product data: ${serverResponse?.summary}. The data shows several key trends in your product portfolio. Would you like more detailed information about specific aspects?`,
+      // },
+      // {
+      //   role: 'user',
+      //   content: 'Which products are performing best?',
+      // },
+      // {
+      //   role: 'assistant',
+      //   content:
+      //     'Based on the data, your top-performing products are in the automation category. These products show higher conversion rates and customer satisfaction scores compared to other categories. The innovation rating for these products is particularly high.',
+      // },
     ];
 
     if (graphData) {
