@@ -15,11 +15,11 @@ import '@xyflow/react/dist/style.css';
 
 import { useEdgeParams } from '@/hooks/use-elements';
 
-import AnnotationNode from './_nodes/AnnotationNode';
-import InfoNode from './_nodes/InfoNode';
+import AnnotationNode from '../pdf/_[id]/_nodes/AnnotationNode';
+import InfoNode from '../pdf/_[id]/_nodes/InfoNode';
 
-import FloatingEdge from './_edges/FloatingEdge';
-import CenterNode from './_nodes/CenterNode';
+import FloatingEdge from '../pdf/_[id]/_edges/FloatingEdge';
+import CenterNode from '../pdf/_[id]/_nodes/CenterNode';
 import { useStore } from '@/lib/store';
 
 const nodeTypes = {

@@ -2,7 +2,19 @@
 
 import { useStore } from '@/lib/store';
 
-import { HomeIcon, MapPlusIcon, PencilIcon, UserIcon } from 'lucide-react';
+import {
+  BrainCircuitIcon,
+  ChartNetwork,
+  ChartNetworkIcon,
+  FileChartColumnIcon,
+  HomeIcon,
+  LayoutDashboardIcon,
+  MapPlusIcon,
+  PencilIcon,
+  SparklesIcon,
+  UserIcon,
+  UserRoundCogIcon,
+} from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
@@ -22,9 +34,12 @@ export type IconProps = React.HTMLAttributes<SVGElement>;
 
 const DATA = {
   navbar: [
-    { href: '/', icon: HomeIcon, label: 'Home' },
-    { href: '/start', icon: PencilIcon, label: 'New' },
-    { href: '/settings', icon: UserIcon, label: 'Settings' },
+    { href: '/dashboard', icon: LayoutDashboardIcon, label: 'Home' },
+    { href: '/dashboard/graph', icon: SparklesIcon, label: 'AI' },
+    { href: '/dashboard/3d', icon: BrainCircuitIcon, label: 'Magic' },
+    { href: '/dashboard/pdf', icon: FileChartColumnIcon, label: 'PDF' },
+    { href: '/dashboard/report', icon: ChartNetworkIcon, label: 'Report' },
+    { href: '/dashboard/settings', icon: UserRoundCogIcon, label: 'Settings' },
   ],
 };
 
@@ -57,7 +72,7 @@ export default function DockBar() {
                 </Tooltip>
               </DockIcon>
             ))}
-            <DockIcon>
+            {/* <DockIcon>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button variant='ghost' size='icon' onClick={setRoadmap}>
@@ -69,7 +84,7 @@ export default function DockBar() {
                   <p>Roadmap</p>
                 </TooltipContent>
               </Tooltip>
-            </DockIcon>
+            </DockIcon> */}
             <DockIcon>
               <Tooltip>
                 <TooltipTrigger asChild>
