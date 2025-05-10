@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<order>
+   <customerId>102736</customerId>
+   <commission>Cerdia Leitwarte</commission>
+   <type>A</type>
+   <shippingConditionId>2</shippingConditionId>
+   <items>
+      <item>
+         <sku>620001</sku>
+         <name>Bürotür mit Stahl-U-Zarge (0,76 x 2,135 m)</name>
+         <text>Hörmann Stahlfutterzarge VarioFix für Mauerwerk oder TRB<br/>- Drückerhöhe 1050 mm<br/>- Meterrissmarkierung<br/>- Maulweitenkante 15 mm<br/>- Stahlblech verzinkt, Materialstärke 1,5 mm<br/>- Hörmann BaseLine HPL Türblatt<br/>- Türgewicht ca. 18,1 kg/m²<br/>- Türstärke ca. 40,7 mm</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>695.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.10</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Tür wie Pos.10, Breite 0,885 m</name>
+         <text>Wie Pos. 10 jedoch b=0,885 m. Einbauort: WC Herren.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>705.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.20</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Tür wie Pos.10, Breite 1,01 m</name>
+         <text>Wie Pos. 10 jedoch b=1,01 m. Einbauort: EG Schichtmeister.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>715.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.30</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Tür wie Pos.10, Nassraum</name>
+         <text>Wie Pos. 10 jedoch b=1,01 m mit Naßraumanforderung. Einbauort: OG WC Beh./D.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>825.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.40</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Tür mit Glasausschnitt</name>
+         <text>Wie Pos. 10 jedoch b=1,01 m mit vollflächigem VSG-Glasausschnitt. Einbauort: EG Prozesssteuerer.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>878.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.50</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Tür mit VSG und Rauchschutz</name>
+         <text>Wie Pos. 10 jedoch b=1,01 m, voll VSG, Rauchschutz mit absenkbarer Bodendichtung. Einbauort: EG Leitwarte.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>1270.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.60</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Zulage Zarge pulverbeschichtet</name>
+         <text>Zulage für pulverbeschichtete Zarge anstatt grundiert.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>282.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.65</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Bürotür 1,01 x 2,65 m mit Oberlicht</name>
+         <text>Bürotür mit Stahl-U-Zarge, Oberlicht, Ausstattung wie Pos. 10, Hörmann BaseLine HPL.</text>
+         <quantity>9</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>1080.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.70</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Tür mit Bodendichtung</name>
+         <text>Wie Pos. 70 jedoch zusätzlich mit absenkbarer Bodendichtung. Einbauort: OG Besprechung.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>1155.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.80</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Zulage Glasausschnitt 1/3</name>
+         <text>Glasausschnitt 1/3 Klarglas VSG liefern und montieren.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>230.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.90</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Zulage Glasausschnitt 1/2</name>
+         <text>Glasausschnitt 1/2 Klarglas VSG liefern und montieren.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>250.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.100</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Zulage Glasausschnitt voll</name>
+         <text>Glasausschnitt voll, Klarglas VSG liefern und montieren.</text>
+         <quantity>10</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>350.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.110</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Zulage Vollspan</name>
+         <text>Zulage für Vollspan statt Röhrenspaneinlage.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>0.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.120</commission>
+      </item>
+      <item>
+         <sku>240001</sku>
+         <name>Zulage WC-Beschlag</name>
+         <text>Metall-Einsteckschloss mit WC-Verriegelung und Rosettengarnitur (Rot/Weiß-Fenster).</text>
+         <quantity>2</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>21.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.130</commission>
+      </item>
+      <item>
+         <sku>450001</sku>
+         <name>Zulage Lüftungsgitter Kunststoff</name>
+         <text>Lüftungsgitter Kunststoff ca. 45x9 cm liefern und montieren.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>55.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.140</commission>
+      </item>
+      <item>
+         <sku>450001</sku>
+         <name>Zulage Lüftungsgitter Aluminium</name>
+         <text>Lüftungsgitter Aluminium liefern und montieren.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>160.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.150</commission>
+      </item>
+      <item>
+         <sku>450001</sku>
+         <name>Zulage Türsymbole (WC)</name>
+         <text>Türsymbole WC liefern und montieren.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>0.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.160</commission>
+      </item>
+      <item>
+         <sku>290001</sku>
+         <name>Zulage Standard-Obertürschließer GEZE TS 5000</name>
+         <text>Standard-Obertürschließer liefern und montieren, Fabrikat GEZE TS 5000.</text>
+         <quantity>2</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>275.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.170</commission>
+      </item>
+      <item>
+         <sku>290001</sku>
+         <name>Zulage Standard-Obertürschließer GEZE TS 5000 ECline</name>
+         <text>Obertürschließer liefern und montieren, Fabrikat GEZE TS 5000 ECline.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>295.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.180</commission>
+      </item>
+      <item>
+         <sku>330001</sku>
+         <name>Zulage verschraubte Türpuffer</name>
+         <text>Verschraubte Türpuffer liefern und montieren, Fabrikat KWS Edelstahl.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>35.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.190</commission>
+      </item>
+      <item>
+         <sku>670001</sku>
+         <name>Bürofenster Innenraum festverglast 2,0x1,32 m</name>
+         <text>Innenraumfenster festverglast mit 2-teiliger Stahl-U-Zarge, VSG 6 mm Glas, Domoferm Glastec.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>1060.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.200</commission>
+      </item>
+      <item>
+         <sku>670001</sku>
+         <name>Bürofenster Innenraum festverglast 2,25x1,32 m</name>
+         <text>Wie Pos. 200, jedoch Breite 2,25 m.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>1040.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.210</commission>
+      </item>
+      <item>
+         <sku>670001</sku>
+         <name>Fenster Innenraum, 1x Schiebe-Flügel</name>
+         <text>Einteiliges Fenster mit Schiebeflügel, montiert auf Wand. Maß 1,01x1,22m.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>1960.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.230</commission>
+      </item>
+      <item>
+         <sku>670001</sku>
+         <name>Fenster T30-RS</name>
+         <text>Wie Pos. 230 jedoch T30-RS Ausführung.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>2425.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.240</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Stahltür Hörmann H3-D</name>
+         <text>Stahltür Hörmann H3-D T30-RS, verzinkt, grundiert, 1-flg. ca. 1.010 x 2.135 mm.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>1780.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.250</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Stahltür H3-D Sondermaß 1.150 x 2.365 mm</name>
+         <text>Stahltür Hörmann H3-D T30-RS, Sondermaß, verzinkt, grundiert, 1-flg. ca. 1.150 x 2.365 mm.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>2345.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.260</commission>
+      </item>
+      <item>
+         <sku>620001</sku>
+         <name>Alutür Hörmann</name>
+         <text>Aluminium-Außentür Hörmann ThermoSafe ca. 1.100 x 2.200 mm, Farbe ähnlich RAL 7016, inkl. Profilzylinder.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>4750.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.1.270</commission>
+      </item>
+      <item>
+         <sku>DL5010008</sku>
+         <name>Wartungsarbeiten Türen/Fenster</name>
+         <text>Wartungsarbeiten an Türen und Fenstern inkl. Dokumentation gemäß Betreiberpflichten. Zeit wird nach tatsächlichem Aufwand abgerechnet.</text>
+         <quantity>1</quantity>
+         <quantityUnit>Stk</quantityUnit>
+         <price>500.00</price>
+         <priceUnit>€</priceUnit>
+         <purchasePrice></purchasePrice>
+         <commission>LV-POS. 1.2.10</commission>
+      </item>
+   </items>
+</order>

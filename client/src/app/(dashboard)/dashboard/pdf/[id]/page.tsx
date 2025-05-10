@@ -6,9 +6,10 @@ import ChatWindow from './ChatWindow';
 import Graph from './Graph';
 import Roadmap from './Roadmap';
 import InfoWindow from './InfoWindow';
-import SceneWrap from '@/components/3d/wrapper';
 
 import { useStore } from '@/lib/store';
+
+import Scene from '@/components/3d/scene';
 
 export default function Chat() {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,9 +44,8 @@ export default function Chat() {
 
   return (
     <div suppressHydrationWarning>
-      <div className='absolute z-[-10] top-0 h-full w-full'>
-        <SceneWrap />
-      </div>
+      <Scene />
+
       <DockBar />
       <ChatWindow />
       {/* <Graph /> */}
@@ -56,4 +56,4 @@ export default function Chat() {
   );
 }
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
