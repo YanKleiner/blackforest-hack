@@ -25,7 +25,7 @@ export default function Logo({ size = 'md', className }: LogoProps) {
       )}
     >
       <span className='text-primary'>Prizm</span>
-      <AuroraText className='ml-1'>AI</AuroraText> {/* Applied AuroraText to "AI" */}
+      <AuroraText>AI</AuroraText>
     </Link>
   );
 }
