@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   ReactFlow,
   Background,
@@ -10,6 +10,7 @@ import {
   BackgroundVariant,
   Connection,
 } from '@xyflow/react';
+import { useRouter } from 'next/navigation';
 
 import '@xyflow/react/dist/style.css';
 
@@ -18,6 +19,7 @@ import InfoNode from '../pdf/_[id]/_nodes/InfoNode';
 import FloatingEdge from '../pdf/_[id]/_edges/FloatingEdge';
 import CenterNode from '../pdf/_[id]/_nodes/CenterNode';
 import RoadmapNode from '../pdf/_[id]/_nodes/RoadmapNode';
+import LoadingNode from '../pdf/_[id]/_nodes/LoadingNode';
 import { useStore } from '@/lib/store';
 
 const nodeTypes = {
@@ -25,17 +27,17 @@ const nodeTypes = {
   custom: InfoNode,
   center: CenterNode,
   roadmap: RoadmapNode,
+  loading: LoadingNode,
 };
 
 const edgeTypes = {
   floating: FloatingEdge,
 };
 
-// PDF processing pipeline nodes
-const initialNodes = [
+// Original nodes data to keep for reference
+const originalNodesData = [
   {
     id: '1',
-    type: 'roadmap',
     data: {
       color: '#8BFFAC',
       title: 'PDF Upload',
@@ -45,7 +47,6 @@ const initialNodes = [
   },
   {
     id: '2',
-    type: 'roadmap',
     data: {
       color: '#FFD700',
       title: 'Document Parsing',
@@ -55,7 +56,6 @@ const initialNodes = [
   },
   {
     id: '3',
-    type: 'roadmap',
     data: {
       color: '#FFD700',
       title: 'Image Extraction',
@@ -65,7 +65,6 @@ const initialNodes = [
   },
   {
     id: '4',
-    type: 'roadmap',
     data: {
       color: '#FF6347',
       title: 'Text Preprocessing',
@@ -75,7 +74,6 @@ const initialNodes = [
   },
   {
     id: '5',
-    type: 'roadmap',
     data: {
       color: '#FF6347',
       title: 'Image Analysis',
@@ -85,7 +83,6 @@ const initialNodes = [
   },
   {
     id: '6',
-    type: 'roadmap',
     data: {
       color: '#87CEEB',
       title: 'Entity Recognition',
@@ -95,7 +92,6 @@ const initialNodes = [
   },
   {
     id: '7',
-    type: 'roadmap',
     data: {
       color: '#87CEEB',
       title: 'Content Classification',
@@ -105,7 +101,6 @@ const initialNodes = [
   },
   {
     id: '8',
-    type: 'roadmap',
     data: {
       color: '#32CD32',
       title: 'Annotation & Labeling',
@@ -115,7 +110,6 @@ const initialNodes = [
   },
   {
     id: '9',
-    type: 'roadmap',
     data: {
       color: '#FF69B4',
       title: 'Knowledge Extraction',
@@ -125,7 +119,6 @@ const initialNodes = [
   },
   {
     id: '10',
-    type: 'roadmap',
     data: {
       color: '#FF69B4',
       title: 'Document Indexing',
@@ -134,6 +127,25 @@ const initialNodes = [
     position: { x: 2000, y: 100 },
   },
 ];
+
+// Convert to loading nodes with cascading delays
+const createLoadingNodes = (completionCallback: any) => {
+  // Base delay for the first node
+  const baseDelay = 1500;
+  // Incremental delay between nodes
+  const stepDelay = 800;
+
+  return originalNodesData.map((node, index) => ({
+    ...node,
+    type: 'loading',
+    data: {
+      ...node.data,
+      delay: baseDelay + index * stepDelay,
+      onLoadComplete:
+        index === originalNodesData.length - 1 ? completionCallback : undefined,
+    },
+  }));
+};
 
 // PDF processing pipeline connections
 const initialEdges = [
@@ -152,7 +164,23 @@ const initialEdges = [
 
 export default function Roadmap() {
   const { setSelectedNode } = useStore();
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const router = useRouter();
+  const [processingComplete, setProcessingComplete] = useState(false);
+
+  // Function to call when all nodes have completed loading
+  const handlePipelineComplete = useCallback(() => {
+    console.log('PDF processing pipeline complete');
+    setProcessingComplete(true);
+
+    // Navigate to a different route after a short delay
+    setTimeout(() => {
+      router.push('/dashboard/3d');
+    }, 1000);
+  }, [router]);
+
+  // Create initial nodes with loading spinners
+  const loadingNodes = createLoadingNodes(handlePipelineComplete);
+  const [nodes, setNodes, onNodesChange] = useNodesState(loadingNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   // Handle node click
@@ -181,6 +209,14 @@ export default function Roadmap() {
 
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
+      {/* {processingComplete && (
+        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
+          <div className='bg-white p-6 rounded-lg shadow-lg'>
+            <h2 className='text-xl font-bold mb-4'>Processing Complete!</h2>
+            <p>Redirecting to results page...</p>
+          </div>
+        </div>
+      )} */}
       <ReactFlow
         nodes={nodes}
         edges={edges}
