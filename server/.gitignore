@@ -1,2 +1,6 @@
 .env
+<<<<<<< HEAD
 node_modules
+=======
+testing
+>>>>>>> 0a2c1209e536f6c6971aaa1fa40c24413e076917

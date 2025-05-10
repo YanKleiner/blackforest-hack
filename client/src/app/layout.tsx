@@ -9,32 +9,32 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'PrismAI',
+  title: 'PrizmAi',
   description: 'Empowering hotels, simplifying travel.',
   keywords:
-    'hotel, travel, booking, management, PrismAI, hospitality, technology, OTA',
+    'PDF, data, search, PrizmAi, technology, AI',
   authors: [{ name: 'Kirill Heitzler' }],
   viewport: 'width=device-width, initial-scale=1',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://PrismAI.com/',
-    title: 'PrismAI - Empowering hotels, simplifying travel.',
+    url: 'https://PrizmAi.com/',
+    title: 'PrizmAi - Empowering hotels, simplifying travel.',
     description: 'Empowering hotels, simplifying travel.',
-    siteName: 'PrismAI',
+    siteName: 'PrizmAi',
     images: [
       {
         url: 'https://voyada.com/opengraph.png',
         width: 1200,
         height: 630,
-        alt: 'PrismAI - Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        alt: 'PrizmAi - From clutter to clarity',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PrismAI - Empowering hotels, simplifying travel.',
-    description: 'Empowering hotels, simplifying travel.',
+    title: 'PrizmAi - From clutter to clarity',
+    description: 'From clutter to clarity',
     images: ['https://voyada.com/opengraph.png'],
   },
 };

@@ -42,14 +42,14 @@ export function FAQ() {
   const faqs: FAQCategories = {
     general: [
       {
-        question: 'What is PrismAI?',
+        question: 'What is PrizmAi?',
         answer:
-          'PrismAI is an AI-powered platform that transforms PDF documents into structured, actionable data. We help businesses eliminate manual data entry and extract valuable insights from their documents.',
+          'PrizmAi is an AI-powered platform that transforms PDF documents into structured, actionable data. We help businesses eliminate manual data entry and extract valuable insights from their documents.',
       },
       {
-        question: 'What types of documents can PrismAI process?',
+        question: 'What types of documents can PrizmAi process?',
         answer:
-          'PrismAI can process virtually any PDF document, including invoices, contracts, reports, forms, financial statements, and research papers, regardless of format or complexity.',
+          'PrizmAi can process virtually any PDF document, including invoices, contracts, reports, forms, financial statements, and research papers, regardless of format or complexity.',
       },
       {
         question: 'How accurate is your data extraction?',
@@ -64,19 +64,19 @@ export function FAQ() {
     ],
     technical: [
       {
-        question: 'What technologies does PrismAI use?',
+        question: 'What technologies does PrizmAi use?',
         answer:
-          'PrismAI leverages deep learning, computer vision, and natural language processing to understand document context and extract meaningful data with high accuracy.',
+          'PrizmAi leverages deep learning, computer vision, and natural language processing to understand document context and extract meaningful data with high accuracy.',
       },
       {
-        question: 'Can PrismAI handle handwritten text?',
+        question: 'Can PrizmAi handle handwritten text?',
         answer:
-          'Yes, PrismAI can recognize and extract most legible handwritten text, though accuracy varies based on handwriting clarity.',
+          'Yes, PrizmAi can recognize and extract most legible handwritten text, though accuracy varies based on handwriting clarity.',
       },
     ],
     integration: [
       {
-        question: 'Can I integrate PrismAI with my existing systems?',
+        question: 'Can I integrate PrizmAi with my existing systems?',
         answer:
           'Yes, we offer a robust API and pre-built integrations for popular platforms like Salesforce, SAP, Microsoft 365, and Google Workspace. Custom integrations are available for enterprise customers.',
       },
@@ -88,19 +88,19 @@ export function FAQ() {
     ],
     pricing: [
       {
-        question: 'How is PrismAI priced?',
+        question: 'How is PrizmAi priced?',
         answer:
           'We offer tiered pricing based on document volume and feature requirements. Plans start at $99/month for small businesses, with custom enterprise pricing available for high-volume needs.',
       },
       {
         question: 'Is there a free trial?',
         answer:
-          'Yes, we offer a 14-day free trial with access to all features and processing for up to 100 documents so you can experience the full power of PrismAI.',
+          'Yes, we offer a 14-day free trial with access to all features and processing for up to 100 documents so you can experience the full power of PrizmAi.',
       },
     ],
     security: [
       {
-        question: 'How secure is my data with PrismAI?',
+        question: 'How secure is my data with PrizmAi?',
         answer:
           'We employ bank-level encryption for all data, both in transit and at rest. Our platform is SOC 2 Type II certified, GDPR compliant, and we offer private cloud deployments for organizations with strict security requirements.',
       },

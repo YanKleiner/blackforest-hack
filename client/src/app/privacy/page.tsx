@@ -109,7 +109,7 @@ export default function Privacy() {
               If you have any questions about this Privacy Policy, please
               contact us:
             </p>
-            <p>• By email: info@PrismAI.com</p>
+            <p>• By email: info@PrizmAi.com</p>
             <p>• By visiting our contact page on the website</p>
           </CardContent>
         </Card>

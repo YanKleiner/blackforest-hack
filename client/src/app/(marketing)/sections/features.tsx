@@ -4,6 +4,7 @@ import { MagicCard } from '@/components/magicui/magic-card';
 import { motion } from 'framer-motion';
 import { FileText, BarChart2, Zap, Database } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import Image from 'next/image';
 
 export function Features() {
   const { theme } = useTheme();
@@ -44,13 +45,21 @@ export function Features() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}>
-          <h2 className='mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl'>
-            How It Works
-          </h2>
+          <div className='mb-6 flex justify-center'>
+            <Image
+              src={theme === 'dark' ? '/PrizmAi_w.png' : '/PrizmAi_b.png'}
+              alt='PrizmAi Logo'
+              width={300}
+              height={75}
+            />
+          </div>
           <p className='mx-auto max-w-2xl text-xl text-muted-foreground'>
             Our comprehensive platform transforms your document chaos into
             structured, actionable data with minimal effort.
           </p>
+          <button className='mt-6 px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800'>
+            Get Started
+          </button>
         </motion.div>
 
         <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4'>
@@ -64,14 +73,14 @@ export function Features() {
               transition={{ duration: 0.5, delay: index * 0.1 }}>
               <MagicCard
                 gradientColor={theme === 'dark' ? '#262626' : '#D9D9D955'}
-                className='p-8 rounded-xl'>
+                className='p-8 rounded-xl h-full flex flex-col'>
                 <div className='mb-4 inline-block rounded-full bg-accent/20 p-3 text-primary'>
                   {feature.icon}
                 </div>
                 <h3 className='mb-3 text-xl font-bold text-foreground'>
                   {feature.title}
                 </h3>
-                <p className='text-muted-foreground'>{feature.description}</p>
+                <p className='text-muted-foreground flex-grow'>{feature.description}</p>
               </MagicCard>
             </motion.div>
           ))}
