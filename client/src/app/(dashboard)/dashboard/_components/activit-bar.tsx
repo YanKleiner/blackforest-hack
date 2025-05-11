@@ -6,11 +6,11 @@ import { Minus, Plus } from 'lucide-react';
 import { Bar, BarChart, ResponsiveContainer } from 'recharts';
 import { ReactFlow, Controls, Background } from '@xyflow/react';
 
-import AnnotationNode from '../pdf/_[id]/_nodes/AnnotationNode';
-import InfoNode from '../pdf/_[id]/_nodes/InfoNode';
+import AnnotationNode from '../pdf/_graph/_nodes/AnnotationNode';
+import InfoNode from '../pdf/_graph/_nodes/InfoNode';
 
-import FloatingEdge from '../pdf/_[id]/_edges/FloatingEdge';
-import CenterNode from '../pdf/_[id]/_nodes/CenterNode';
+import FloatingEdge from '../pdf/_graph/_edges/FloatingEdge';
+import CenterNode from '../pdf/_graph/_nodes/CenterNode';
 
 const nodeTypes = {
   annotation: AnnotationNode,

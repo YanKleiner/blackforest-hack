@@ -10,36 +10,6 @@ import { DataTable } from '@/app/(dashboard)/dashboard/_components/data-table';
 import { ChartAreaInteractive } from '@/app/(dashboard)/dashboard/_components/chart-area-interactive';
 
 export default function Chat() {
-  const [isLoading, setIsLoading] = useState(true);
-  const { setGraphData } = useStore();
-
-  useEffect(() => {
-    // Retrieve data from localStorage
-    const storedData = localStorage.getItem('startData');
-
-    if (storedData) {
-      try {
-        const parsedData = JSON.parse(storedData);
-        setGraphData(parsedData);
-      } catch (error) {
-        console.error('Error parsing stored data:', error);
-      }
-    }
-
-    setIsLoading(false);
-  }, []);
-
-  // Get the graphData from the store to pass to Graph and ChatWindow
-  const { graphData } = useStore();
-
-  if (isLoading) {
-    return (
-      <div className='flex items-center justify-center min-h-screen'>
-        <div className='text-lg font-medium'>Loading OCR metrics...</div>
-      </div>
-    );
-  }
-
   return (
     <div className='relative flex flex-1 flex-col top-20'>
       <div className='@container/main flex flex-1 flex-col gap-2'>

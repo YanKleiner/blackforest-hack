@@ -14,12 +14,12 @@ import { useRouter } from 'next/navigation';
 
 import '@xyflow/react/dist/style.css';
 
-import AnnotationNode from '../pdf/_[id]/_nodes/AnnotationNode';
-import InfoNode from '../pdf/_[id]/_nodes/InfoNode';
-import FloatingEdge from '../pdf/_[id]/_edges/FloatingEdge';
-import CenterNode from '../pdf/_[id]/_nodes/CenterNode';
-import RoadmapNode from '../pdf/_[id]/_nodes/RoadmapNode';
-import LoadingNode from '../pdf/_[id]/_nodes/LoadingNode';
+import AnnotationNode from '../pdf/_graph/_nodes/AnnotationNode';
+import InfoNode from '../pdf/_graph/_nodes/InfoNode';
+import FloatingEdge from '../pdf/_graph/_edges/FloatingEdge';
+import CenterNode from '../pdf/_graph/_nodes/CenterNode';
+import RoadmapNode from '../pdf/_graph/_nodes/RoadmapNode';
+import LoadingNode from '../pdf/_graph/_nodes/LoadingNode';
 import { useStore } from '@/lib/store';
 
 const nodeTypes = {

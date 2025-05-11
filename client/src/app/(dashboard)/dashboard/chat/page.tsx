@@ -1,67 +1,3 @@
-// // import { AppSidebar } from '@/app/(dashboard)/dashboard/_components/app-sidebar';
-// // import { ChartAreaInteractive } from '@/app/(dashboard)/dashboard/_components/chart-area-interactive';
-// // import { DataTable } from '@/app/(dashboard)/dashboard/_components/data-table';
-// // import { SectionCards } from '@/app/(dashboard)/dashboard/_components/section-cards';
-// // import { SiteHeader } from '@/app/(dashboard)/dashboard/_components/site-header';
-// // import {
-// //   SidebarHeader,
-// //   SidebarInset,
-// //   SidebarProvider,
-// // } from '@/components/ui/sidebar';
-
-// // import data from './data.json';
-
-// // export default function DashboardPage() {
-// //   return (
-// //     <>
-// //       <SiteHeader name='Dashboard' />
-// //       <div className='flex flex-1 flex-col'>
-// //         <div className='@container/main flex flex-1 flex-col gap-2'>
-// //           <div className='flex flex-col gap-4 py-4 md:gap-6 md:py-6'>
-// //             <SectionCards />
-// //             <div className='px-4 lg:px-6'>
-// //               <ChartAreaInteractive />
-// //             </div>
-// //             <DataTable data={data} />
-// //           </div>
-// //         </div>
-// //       </div>
-// //     </>
-// //   );
-// // }
-
-// import { AppSidebar } from '@/app/(dashboard)/dashboard/_components/app-sidebar';
-// import { ChartAreaInteractive } from '@/app/(dashboard)/dashboard/_components/chart-area-interactive';
-// import { DataTable } from '@/app/(dashboard)/dashboard/_components/data-table';
-// import { SectionCards } from '@/app/(dashboard)/dashboard/_components/section-cards';
-// import { SiteHeader } from '@/app/(dashboard)/dashboard/_components/site-header';
-// import {
-//   SidebarHeader,
-//   SidebarInset,
-//   SidebarProvider,
-// } from '@/components/ui/sidebar';
-
-// import data from './data.json';
-
-// export default function DashboardPage() {
-//   return (
-//     <>
-//       <SiteHeader name='Dashboard' />
-//       <div className='flex flex-1 flex-col'>
-//         <div className='@container/main flex flex-1 flex-col gap-2'>
-//           <div className='flex flex-col gap-4 py-4 md:gap-6 md:py-6'>
-//             <SectionCards />
-//             <div className='px-4 lg:px-6'>
-//               <ChartAreaInteractive />
-//             </div>
-//             <DataTable data={data} />
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -76,7 +12,6 @@ export default function Chat() {
   const { setGraphData } = useStore();
 
   useEffect(() => {
-    // Retrieve data from localStorage
     const storedData = localStorage.getItem('startData');
 
     if (storedData) {
@@ -87,12 +22,8 @@ export default function Chat() {
         console.error('Error parsing stored data:', error);
       }
     }
-
     setIsLoading(false);
   }, []);
-
-  // Get the graphData from the store to pass to Graph and ChatWindow
-  const { graphData } = useStore();
 
   if (isLoading) {
     return (
@@ -104,13 +35,7 @@ export default function Chat() {
 
   return (
     <div suppressHydrationWarning>
-      {/* <Graph /> */}
-      {/* 
-      <Roadmap />
-      <InfoWindow /> */}
-
       <Scene />
-
       <ChatWindow />
     </div>
   );
