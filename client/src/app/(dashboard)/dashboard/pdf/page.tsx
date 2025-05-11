@@ -25,25 +25,41 @@ export default function PDFPage() {
   }, [serverResponse]);
 
   return (
-    <div className='container py-8 pt-20'>
-      <h1 className='text-2xl font-bold mb-6'>Generated XML Output</h1>
+    <div className='container max-w-7xl mx-auto px-4 py-8 pt-25'>
+      <h1 className='text-2xl font-bold mb-6 text-center'>
+        Generated XML Output
+      </h1>
 
       {serverResponse?.success && (
-        <div className='mb-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-md text-green-700 dark:text-green-300'>
-          <p className='text-sm'>
+        <div className='mb-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-md text-green-700 dark:text-green-300 max-w-3xl mx-auto'>
+          <p className='text-sm text-center'>
             Successfully processed file: {serverResponse.file?.name}
           </p>
         </div>
       )}
 
-      <SingleCode
-        code={codeToDisplay}
-        language='xml'
-        filename={fileName}
-        lightTheme='github-light'
-        darkTheme='github-dark'
-        highlightColor='#ff5500'
-      />
+      <div className='flex flex-col lg:flex-row gap-6 h-[calc(100vh-200px)] max-w-7xl mx-auto'>
+        {/* PDF Viewer */}
+        <div className='w-full lg:w-1/2 bg-white rounded-md border border-gray-200 shadow-sm overflow-hidden h-full'>
+          <iframe
+            src='/showcase.pdf'
+            className='w-full h-full'
+            title='PDF Viewer'
+          />
+        </div>
+
+        {/* XML Code */}
+        <div className='w-full lg:w-1/2 h-full overflow-auto'>
+          <SingleCode
+            code={codeToDisplay}
+            language='xml'
+            filename={fileName}
+            lightTheme='github-light'
+            darkTheme='github-dark'
+            highlightColor='#ff5500'
+          />
+        </div>
+      </div>
     </div>
   );
 }
