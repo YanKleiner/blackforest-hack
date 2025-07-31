@@ -7,7 +7,7 @@
 ## Overview  
 **PrizmAI** is an AI-powered document processing tool that transforms **unstructured PDFs** into **structured XML**, ready for direct integration into **KOCH Freiburg GmbH’s ERP system**.  
 
-Our solution eliminates the need for manual data entry by combining **AI-based structure recognition** with an automated **XML generation pipeline** — resulting in **significant time savings** for enterprise workflows.
+Our solution eliminates the need for manual data entry by combining **AI-based structure recognition** with an automated **XML generation pipeline** resulting in **significant time savings** for enterprise workflows.
 
 ---
 
@@ -21,7 +21,7 @@ Our solution eliminates the need for manual data entry by combining **AI-based s
 ---
 
 ## Video Demonstration  
-See PrizmAI in action as it parses real-world documents and produces structured XML:
+See PrizmAI in action as it parses real world documents and produces structured XML:
 
 **👉 [Watch the Demo on YouTube](https://www.youtube.com/watch?v=aIY0c2irUTs)**
 
@@ -49,10 +49,10 @@ See PrizmAI in action as it parses real-world documents and produces structured 
 
 ---
 
-## Team  
-- **Yan Kleiner**  
+## Team    
 - **Oliver James Oberle**  
-- **Kirill Heitzler**  
+- **Kirill Heitzler**
+- **Yan Kleiner** 
 - **Greyson Wiesenack**
 
 Big thanks to **KOCH Freiburg GmbH**, **Peter Meissner**, and the **Blackforest Hackathon organizers** for making this event possible.
